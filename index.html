@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>White Wolf Labs — Web Design Studio</title>
+  <meta name="description" content="White Wolf Labs — A premium web design studio crafting bold, memorable digital experiences." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">WWL</a>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#work" onclick="closeMobileMenu()">Work</a></li>
+      <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+      <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+      <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        <span>Web Design Studio — Est. 2024</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="line" data-text="We Design">We Design</span>
+        <span class="line accent" data-text="Digital">Digital</span>
+        <span class="line" data-text="Legends.">Legends.</span>
+      </h1>
+      <p class="hero-sub">Bold websites. Sharp brands. Digital experiences that don't just look good — they perform.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">View Our Work</a>
+        <a href="#contact" class="btn btn-ghost">Start a Project →</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <span>Web Design</span><span class="sep">✦</span>
+        <span>UI/UX</span><span class="sep">✦</span>
+        <span>Brand Identity</span><span class="sep">✦</span>
+        <span>Motion Design</span><span class="sep">✦</span>
+        <span>E-Commerce</span><span class="sep">✦</span>
+        <span>Development</span><span class="sep">✦</span>
+        <span>Web Design</span><span class="sep">✦</span>
+        <span>UI/UX</span><span class="sep">✦</span>
+        <span>Brand Identity</span><span class="sep">✦</span>
+        <span>Motion Design</span><span class="sep">✦</span>
+        <span>E-Commerce</span><span class="sep">✦</span>
+        <span>Development</span><span class="sep">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-inner">
+      <div class="stat">
+        <span class="stat-num" data-target="48">0</span>
+        <span class="stat-label">Projects Delivered</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="100">0</span>
+        <span class="stat-label">Client Satisfaction</span>
+        <span class="stat-suffix">%</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="12">0</span>
+        <span class="stat-label">Industries Served</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="3">0</span>
+        <span class="stat-label">Design Awards</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="section-header">
+      <div class="section-tag">Selected Work</div>
+      <h2>Projects that <em>move</em> the needle.</h2>
+    </div>
+    <div class="work-grid">
+      <article class="work-card" data-cat="Branding + Web">
+        <div class="work-img" style="background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);">
+          <div class="work-shape shape-a"></div>
+          <div class="work-label">APEX VENTURES</div>
+        </div>
+        <div class="work-info">
+          <h3>Apex Ventures</h3>
+          <p>Brand identity &amp; investor portal for a Series-A VC firm.</p>
+          <span class="tag">Branding + Web</span>
+        </div>
+      </article>
+
+      <article class="work-card featured" data-cat="E-Commerce">
+        <div class="work-img" style="background: linear-gradient(135deg, #1a0533 0%, #3d0c6e 50%, #6600cc 100%);">
+          <div class="work-shape shape-b"></div>
+          <div class="work-label">LUNA STORE</div>
+        </div>
+        <div class="work-info">
+          <h3>Luna Store</h3>
+          <p>High-conversion Shopify build for a luxury cosmetics brand.</p>
+          <span class="tag">E-Commerce</span>
+        </div>
+      </article>
+
+      <article class="work-card" data-cat="Web App">
+        <div class="work-img" style="background: linear-gradient(135deg, #001f0f 0%, #003d1a 50%, #00662e 100%);">
+          <div class="work-shape shape-c"></div>
+          <div class="work-label">GREENLINE</div>
+        </div>
+        <div class="work-info">
+          <h3>Greenline Dashboard</h3>
+          <p>Analytics platform for a sustainable logistics startup.</p>
+          <span class="tag">Web App</span>
+        </div>
+      </article>
+
+      <article class="work-card" data-cat="Landing Page">
+        <div class="work-img" style="background: linear-gradient(135deg, #0d0d1a 0%, #1a1a33 50%, #1e1e3f 100%);">
+          <div class="work-shape shape-d"></div>
+          <div class="work-label">STELLARX</div>
+        </div>
+        <div class="work-info">
+          <h3>StellarX Launch</h3>
+          <p>High-impact product launch page with 40% conversion rate.</p>
+          <span class="tag">Landing Page</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-inner">
+      <div class="section-header">
+        <div class="section-tag">What We Do</div>
+        <h2>Every pixel, <em>intentional.</em></h2>
+      </div>
+      <div class="services-list">
+        <div class="service-item">
+          <div class="service-num">01</div>
+          <div class="service-body">
+            <h3>Web Design &amp; Development</h3>
+            <p>Pixel-perfect websites built for speed, accessibility, and conversion. From landing pages to complex web apps.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">02</div>
+          <div class="service-body">
+            <h3>Brand Identity</h3>
+            <p>Logos, color systems, typography, and brand guidelines that make your brand unmistakable across every touchpoint.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">03</div>
+          <div class="service-body">
+            <h3>UI/UX Design</h3>
+            <p>User research, wireframes, and high-fidelity prototypes. Interfaces people love to use, not just look at.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">04</div>
+          <div class="service-body">
+            <h3>E-Commerce</h3>
+            <p>Shopify and custom storefronts engineered to sell. Product pages, checkout flows, and retention strategies.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">05</div>
+          <div class="service-body">
+            <h3>Motion &amp; Interaction</h3>
+            <p>Animations, micro-interactions, and scroll effects that breathe life into your digital presence.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="section-header">
+      <div class="section-tag">Our Process</div>
+      <h2>How we build <em>legends.</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-icon">◎</div>
+        <h4>Discover</h4>
+        <p>Deep dive into your goals, audience, competitors. No guessing.</p>
+      </div>
+      <div class="process-connector">—</div>
+      <div class="process-step">
+        <div class="process-icon">◈</div>
+        <h4>Design</h4>
+        <p>Wireframes, mood boards, and high-fidelity mockups. You approve every pixel.</p>
+      </div>
+      <div class="process-connector">—</div>
+      <div class="process-step">
+        <div class="process-icon">◆</div>
+        <h4>Build</h4>
+        <p>Clean code, fast load times, mobile-first. Launched and battle-tested.</p>
+      </div>
+      <div class="process-connector">—</div>
+      <div class="process-step">
+        <div class="process-icon">✦</div>
+        <h4>Grow</h4>
+        <p>Post-launch support, analytics, and ongoing optimisation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="about-card">
+          <div class="about-logo-big">WWL</div>
+          <div class="about-tagline">Design.<br/>Build.<br/>Deliver.</div>
+        </div>
+        <div class="about-badge">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path id="circle" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none"/>
+            <text font-size="11" fill="currentColor" font-family="Space Mono, monospace" letter-spacing="3">
+              <textPath href="#circle">WHITE WOLF LABS ✦ EST. 2024 ✦ </textPath>
+            </text>
+          </svg>
+          <div class="badge-center">🐺</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-tag">About</div>
+        <h2>We build websites that <em>wolves</em> would be proud of.</h2>
+        <p>White Wolf Labs is a boutique web design studio based in India, working with ambitious founders, startups, and brands worldwide who refuse to settle for average.</p>
+        <p>We blend sharp strategy with bold design to create digital experiences that are not just beautiful — they convert, retain, and grow.</p>
+        <div class="about-values">
+          <div class="value">
+            <span class="value-dot"></span>
+            <span>Bold by default</span>
+          </div>
+          <div class="value">
+            <span class="value-dot"></span>
+            <span>Performance obsessed</span>
+          </div>
+          <div class="value">
+            <span class="value-dot"></span>
+            <span>Human-centred</span>
+          </div>
+          <div class="value">
+            <span class="value-dot"></span>
+            <span>Relentlessly iterative</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary">Work With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-header">
+      <div class="section-tag">Kind Words</div>
+      <h2>Clients who <em>trust</em> the wolf.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"White Wolf Labs completely transformed our online presence. The attention to detail is insane — every scroll, every hover felt intentional."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AS</div>
+          <div>
+            <strong>Aryan Shah</strong>
+            <span>Founder, Apex Ventures</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card featured">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Our conversion rate went up 40% after the redesign. They understand how design and business goals intersect better than any agency I've worked with."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MK</div>
+          <div>
+            <strong>Meera Kapoor</strong>
+            <span>CEO, Luna Cosmetics</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Fast, communicative, and deliver what they promise. The dashboard they built handles 10K+ daily users without a hiccup."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RP</div>
+          <div>
+            <strong>Rohan Patel</strong>
+            <span>CTO, Greenline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-tag">Get In Touch</div>
+        <h2>Ready to build something <em>legendary?</em></h2>
+        <p>Tell us about your project. We respond within 24 hours.</p>
+        <div class="contact-links">
+          <a href="mailto:hello@whitewolflabs.in">hello@whitewolflabs.in</a>
+          <a href="https://github.com/prabhjyot-ucl/whitewolflabs.in" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="project">Project Type</label>
+          <select id="project">
+            <option value="">Select a service...</option>
+            <option>Web Design &amp; Development</option>
+            <option>Brand Identity</option>
+            <option>UI/UX Design</option>
+            <option>E-Commerce</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell us about your project</label>
+          <textarea id="message" rows="5" placeholder="What are you building?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Send Message ✦</button>
+        <div class="form-success" id="formSuccess">
+          ✓ Message sent! We'll be in touch within 24 hours.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo">WHITE WOLF LABS</div>
+      <div class="footer-links">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/prabhjyot-ucl/whitewolflabs.in" target="_blank" aria-label="GitHub">GH</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 White Wolf Labs. All rights reserved.</span>
+      <span>whitewolflabs.in</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
