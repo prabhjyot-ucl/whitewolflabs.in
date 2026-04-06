@@ -4,390 +4,386 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>White Wolf Labs — Web Design Studio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="White Wolf Labs is a boutique web design studio crafting bold digital experiences for international clients." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--cream:#faf7f2;--cream2:#f2ede4;--cream3:#e8e0d0;--navy:#0f1c2e;--navy2:#1a2f4a;--ink:#2a2a2a;--ink2:#5a5a5a;--ink3:#9a9a9a;--terra:#c4623a;--terra-l:rgba(196,98,58,.10);--terra-b:rgba(196,98,58,.25);--white:#ffffff;--shadow:0 2px 20px rgba(15,28,46,.08);--shadow-lg:0 8px 48px rgba(15,28,46,.12);--r:4px;--ease:cubic-bezier(.25,.46,.45,.94);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Outfit',sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}ul{list-style:none}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+    .reveal.in{opacity:1;transform:none}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;transition:background .35s,box-shadow .35s}
+    .nav.solid{background:rgba(250,247,242,.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--cream3)}
+    .nav-logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--navy);letter-spacing:.02em}
+    .nav-logo span{color:var(--terra)}
+    .nav-links{display:flex;align-items:center;gap:2.5rem}
+    .nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);transition:color .2s}
+    .nav-links a:hover{color:var(--terra)}
+    .nav-cta{background:var(--navy)!important;color:var(--white)!important;padding:.6rem 1.4rem!important;border-radius:var(--r)}
+    .nav-cta:hover{background:var(--navy2)!important}
+    .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+    .burger span{display:block;width:22px;height:1.5px;background:var(--navy);transition:transform .3s var(--ease),opacity .3s}
+    .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-nav{display:none;position:fixed;inset:0;background:var(--cream);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+    .mobile-nav.open{display:flex}
+    .mobile-nav a{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--navy);transition:color .2s}
+    .mobile-nav a:hover{color:var(--terra)}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.9rem 2rem;border-radius:var(--r);transition:transform .2s var(--ease),box-shadow .2s;border:none;cursor:pointer;font-family:var(--sans)}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-dark{background:var(--navy);color:var(--white);box-shadow:0 2px 12px rgba(15,28,46,.2)}
+    .btn-dark:hover{box-shadow:0 6px 24px rgba(15,28,46,.25)}
+    .btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--cream3)}
+    .btn-outline:hover{border-color:var(--navy)}
+    .btn-terra{background:var(--terra);color:var(--white);box-shadow:0 2px 12px rgba(196,98,58,.25)}
+    .btn-terra:hover{box-shadow:0 6px 24px rgba(196,98,58,.35)}
+    .label{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);margin-bottom:1.2rem}
+    .label::before{content:'';display:block;width:20px;height:1.5px;background:var(--terra)}
+    .section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--navy);line-height:1.15;letter-spacing:-.01em}
+    .section-title em{font-style:italic;color:var(--terra)}
+    .hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:8rem 5vw 5rem;position:relative;overflow:hidden}
+    .hero::after{content:'';position:absolute;right:-10%;top:-10%;width:55vw;height:55vw;max-width:700px;max-height:700px;border-radius:50%;background:radial-gradient(circle,var(--cream2) 0%,transparent 70%);pointer-events:none}
+    .hero-left{position:relative;z-index:1}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);background:var(--cream2);border:1px solid var(--cream3);padding:.4rem .9rem;border-radius:100px;margin-bottom:1.8rem}
+    .dot-g{width:6px;height:6px;background:var(--terra);border-radius:50%;display:inline-block}
+    .hero-h1{font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.05;color:var(--navy);letter-spacing:-.02em;margin-bottom:1.8rem}
+    .hero-h1 strong{font-weight:700}.hero-h1 em{font-style:italic;color:var(--terra)}
+    .hero-sub{font-size:1.05rem;color:var(--ink2);max-width:420px;margin-bottom:2.5rem;line-height:1.75;font-weight:300}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+    .hero-right{position:relative;z-index:1;display:flex;justify-content:flex-end}
+    .hero-card{width:100%;max-width:440px;background:var(--white);border-radius:16px;box-shadow:var(--shadow-lg);overflow:hidden;border:1px solid var(--cream3)}
+    .hch{background:var(--navy);padding:1rem 1.2rem;display:flex;align-items:center;gap:.5rem}
+    .hcd{width:10px;height:10px;border-radius:50%}
+    .hcd:nth-child(1){background:#ff6058}.hcd:nth-child(2){background:#ffbd2e}.hcd:nth-child(3){background:#28ca41}
+    .hcu{flex:1;background:rgba(255,255,255,.1);border-radius:4px;height:20px;margin-left:.4rem;display:flex;align-items:center;padding:0 .6rem}
+    .hcu span{font-size:.62rem;color:rgba(255,255,255,.45);font-family:monospace}
+    .hcb{padding:1.4rem}
+    .mi{width:100%;height:120px;background:linear-gradient(135deg,var(--cream2) 0%,var(--cream3) 100%);border-radius:8px;margin-bottom:.75rem;display:flex;align-items:center;justify-content:center}
+    .mi span{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--ink3);letter-spacing:.05em}
+    .mbadge{display:inline-flex;align-items:center;gap:4px;background:var(--terra-l);color:var(--terra);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:100px;border:1px solid var(--terra-b)}
+    .mbadge::before{content:'';width:5px;height:5px;background:var(--terra);border-radius:50%}
+    .ml{height:9px;background:var(--cream2);border-radius:100px;margin-bottom:6px}
+    .mstats{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.75rem}
+    .ms{background:var(--cream);border:1px solid var(--cream3);border-radius:8px;padding:.55rem;text-align:center}
+    .ms-n{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--navy);display:block}
+    .ms-l{font-size:.58rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em}
+    .ticker{background:var(--navy);padding:.85rem 0;overflow:hidden}
+    .ticker-track{display:flex;gap:3rem;white-space:nowrap;animation:ticker 22s linear infinite;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+    .ticker-track .hi{color:var(--terra)}
+    @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--white);border-bottom:1px solid var(--cream3)}
+    .stat{padding:3rem 2rem;text-align:center;border-right:1px solid var(--cream3)}
+    .stat:last-child{border-right:none}
+    .stat-n{display:block;font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;color:var(--navy);line-height:1}
+    .stat-suf{color:var(--terra)}
+    .stat-l{display:block;font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-top:.4rem}
+    .work{padding:7rem 5vw}
+    .wh{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4rem;flex-wrap:wrap;gap:2rem}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+    .project{background:var(--white);border:1px solid var(--cream3);border-radius:12px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s}
+    .project:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+    .project:first-child{grid-column:1/-1}
+    .pt{width:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;aspect-ratio:16/8}
+    .project:not(:first-child) .pt{aspect-ratio:4/3}
+    .pt-lbl{font-family:var(--serif);font-size:clamp(1.5rem,4vw,3rem);font-weight:700;color:rgba(255,255,255,.18);letter-spacing:.15em;text-transform:uppercase}
+    .pi{padding:1.4rem 1.8rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--cream3)}
+    .ptag{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--terra);background:var(--terra-l);border:1px solid var(--terra-b);padding:.22rem .6rem;border-radius:100px;margin-bottom:.45rem}
+    .pname{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--navy)}
+    .pdesc{font-size:.83rem;color:var(--ink2);margin-top:.25rem}
+    .parrow{width:40px;height:40px;border:1.5px solid var(--cream3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--navy);flex-shrink:0;transition:background .2s,border-color .2s,color .2s}
+    .project:hover .parrow{background:var(--terra);border-color:var(--terra);color:var(--white)}
+    .services{padding:7rem 5vw;background:var(--navy);position:relative;overflow:hidden}
+    .services::before{content:'WWL';position:absolute;right:-2%;bottom:-10%;font-family:var(--serif);font-size:22vw;font-weight:700;color:rgba(255,255,255,.025);pointer-events:none;line-height:1;letter-spacing:-.05em}
+    .services .label{color:rgba(255,255,255,.4)}.services .label::before{background:rgba(255,255,255,.4)}
+    .services .section-title{color:var(--white)}
+    .sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+    .sc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.2rem;transition:background .3s,border-color .3s,transform .3s var(--ease)}
+    .sc:hover{background:rgba(255,255,255,.09);border-color:rgba(196,98,58,.4);transform:translateY(-4px)}
+    .sc-num{font-family:var(--serif);font-size:2.5rem;font-weight:700;color:rgba(255,255,255,.07);line-height:1;margin-bottom:1.2rem}
+    .sc-icon{width:44px;height:44px;background:var(--terra-l);border:1px solid var(--terra-b);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.2rem}
+    .sc-name{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:.6rem}
+    .sc-desc{font-size:.86rem;color:rgba(255,255,255,.48);line-height:1.7}
+    .process{padding:7rem 5vw;background:var(--white)}
+    .proc-in{text-align:center;margin-bottom:4rem}
+    .proc-steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+    .proc-steps::before{content:'';position:absolute;top:27px;left:calc(12.5% + 14px);right:calc(12.5% + 14px);height:1.5px;background:var(--cream3);z-index:0}
+    .step{position:relative;z-index:1;text-align:center;padding:0 1rem}
+    .step-c{width:56px;height:56px;border-radius:50%;background:var(--cream);border:2px solid var(--cream3);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--navy);transition:background .3s,border-color .3s,color .3s}
+    .step:hover .step-c{background:var(--terra);border-color:var(--terra);color:var(--white)}
+    .step-name{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:.5rem}
+    .step-desc{font-size:.84rem;color:var(--ink2);line-height:1.65}
+    .about{padding:7rem 5vw;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+    .av{position:relative}
+    .aimg{width:100%;max-width:420px;aspect-ratio:4/5;background:linear-gradient(160deg,var(--cream2) 0%,var(--cream3) 100%);border-radius:16px;border:1px solid var(--cream3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .aimg::after{content:'ߐ';font-size:5rem;position:absolute;bottom:1.5rem;right:1.5rem;opacity:.14}
+    .aimg-text{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--navy);text-align:center;line-height:1.4;padding:2rem}
+    .abadge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--white);border:1px solid var(--cream3);border-radius:12px;padding:1rem 1.4rem;box-shadow:var(--shadow)}
+    .abadge-n{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--navy);line-height:1}
+    .abadge-l{font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+    .about-body{font-size:1rem;color:var(--ink2);line-height:1.8;margin-bottom:1.4rem}
+    .pillars{display:flex;flex-wrap:wrap;gap:.6rem;margin:2rem 0}
+    .pillar{font-size:.77rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);background:var(--cream);border:1.5px solid var(--cream3);padding:.42rem .95rem;border-radius:100px;transition:background .2s,border-color .2s}
+    .pillar:hover{background:var(--cream2);border-color:var(--navy)}
+    .testimonials{padding:7rem 5vw;background:var(--cream2)}
+    .t-in{text-align:center;margin-bottom:4rem}
+    .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .tcard{background:var(--white);border:1px solid var(--cream3);border-radius:12px;padding:2rem;transition:transform .3s var(--ease),box-shadow .3s}
+    .tcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .tc-stars{color:#f59e0b;font-size:.85rem;letter-spacing:.1em;margin-bottom:1rem}
+    .tc-text{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--ink);line-height:1.7;margin-bottom:1.5rem}
+    .tc-auth{display:flex;align-items:center;gap:.8rem}
+    .tc-av{width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;letter-spacing:.05em;flex-shrink:0}
+    .tc-name{font-size:.9rem;font-weight:600;color:var(--navy)}
+    .tc-role{font-size:.77rem;color:var(--ink3)}
+    .contact{padding:7rem 5vw;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+    .c-tag{font-size:1rem;color:var(--ink2);margin:1.5rem 0 2.5rem;line-height:1.75;max-width:380px}
+    .cd{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;font-size:.9rem;color:var(--ink2)}
+    .cd strong{color:var(--navy)}.cd a{color:var(--terra)}.cd a:hover{text-decoration:underline}
+    .cd-icon{width:34px;height:34px;background:var(--cream2);border:1px solid var(--cream3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+    .cf{background:var(--white);border:1px solid var(--cream3);border-radius:16px;padding:2.5rem;box-shadow:var(--shadow)}
+    .cf-title{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:1.8rem}
+    .fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .fg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+    label{font-size:.77rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2)}
+    input,select,textarea{font-family:var(--sans);font-size:.95rem;color:var(--ink);background:var(--cream);border:1.5px solid var(--cream3);border-radius:var(--r);padding:.75rem 1rem;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+    input:focus,select:focus,textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(15,28,46,.06)}
+    input::placeholder,textarea::placeholder{color:var(--ink3)}
+    textarea{resize:vertical;min-height:110px}select{appearance:none;cursor:pointer}
+    .fbtn{width:100%;justify-content:center;margin-top:.5rem}
+    .fsuc{display:none;align-items:center;gap:.5rem;background:#f0fdf4;border:1px solid #bbf7d0;color:#16a34a;font-size:.85rem;padding:.75rem 1rem;border-radius:var(--r);margin-top:1rem}
+    .fsuc.show{display:flex}
+    footer{background:var(--navy);padding:4rem 5vw 2.5rem}
+    .ft{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:2.5rem}
+    .flogo{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:.8rem}
+    .flogo span{color:var(--terra)}
+    .ftag{font-size:.85rem;color:rgba(255,255,255,.4);line-height:1.7;max-width:280px}
+    .fct{font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.2rem}
+    .fl{display:flex;flex-direction:column;gap:.75rem}
+    .fl a{font-size:.9rem;color:rgba(255,255,255,.55);transition:color .2s}.fl a:hover{color:var(--terra)}
+    .fb{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:rgba(255,255,255,.3)}
+    .fb a{color:rgba(255,255,255,.3);transition:color .2s}.fb a:hover{color:rgba(255,255,255,.6)}
+    @media(max-width:1024px){
+      .hero{grid-template-columns:1fr;padding-top:7rem}.hero-right{display:none}
+      .stats{grid-template-columns:repeat(2,1fr)}.stat{border-bottom:1px solid var(--cream3)}.stat:nth-child(2){border-right:none}
+      .sg{grid-template-columns:repeat(2,1fr)}
+      .about{grid-template-columns:1fr}.av{display:none}
+      .contact{grid-template-columns:1fr}
+      .tgrid{grid-template-columns:repeat(2,1fr)}
+      .ft{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .nav-links{display:none}.burger{display:flex}
+      .projects{grid-template-columns:1fr}.project:first-child{grid-column:1}
+      .sg{grid-template-columns:1fr}
+      .proc-steps{grid-template-columns:repeat(2,1fr);gap:2rem}.proc-steps::before{display:none}
+      .tgrid{grid-template-columns:1fr}
+      .fr{grid-template-columns:1fr}
+      .ft{grid-template-columns:1fr;gap:2rem}.fb{flex-direction:column;gap:.5rem;text-align:center}
+    }
+    @media(max-width:480px){
+      .hero{padding:6rem 1.2rem 4rem}
+      .work,.services,.process,.about,.testimonials,.contact{padding:5rem 1.2rem}
+      .stats{grid-template-columns:1fr 1fr}
+      .hero-actions{flex-direction:column}.btn{width:100%;justify-content:center}
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-
-  <!-- Noise overlay -->
-  <div class="noise"></div>
-
-  <!-- NAV -->
   <nav class="nav" id="nav">
-    <a href="#" class="nav-logo">WWL</a>
+    <a href="#" class="nav-logo">White Wolf<span>.</span></a>
     <ul class="nav-links">
-      <li><a href="#work" class="nav-link">Work</a></li>
-      <li><a href="#services" class="nav-link">Services</a></li>
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#contact" class="nav-link nav-cta">Start a Project</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Start a Project</a></li>
     </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span>
-    </button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#work" class="mm-link">Work</a>
-    <a href="#services" class="mm-link">Services</a>
-    <a href="#about" class="mm-link">About</a>
-    <a href="#contact" class="mm-link">Start a Project</a>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Start a Project</a>
   </div>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-bg-text">DESIGN</div>
-    <div class="hero-content">
-      <p class="hero-eyebrow reveal"><span class="mono">Est. 2024</span> &nbsp;·&nbsp; <span class="mono">Web Design Studio</span></p>
-      <h1 class="hero-headline reveal">
-        <span class="line">We craft</span>
-        <span class="line italic">digital</span>
-        <span class="line">legends.</span>
-      </h1>
-      <p class="hero-sub reveal">Bold websites. Sharp brands. Experiences that don't just look good — they <em>convert</em>.</p>
-      <div class="hero-actions reveal">
-        <a href="#work" class="btn-primary">View Work</a>
-        <a href="#contact" class="btn-ghost">Start a Project →</a>
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow"><span class="dot-g"></span> Est. 2024 &nbsp;·&nbsp; Boutique Studio</p>
+      <h1 class="hero-h1">We design<br><em>digital</em><br><strong>legends.</strong></h1>
+      <p class="hero-sub">Bold websites. Sharp brands. Digital experiences crafted for ambitious international clients who refuse to blend in.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-dark">View Our Work</a>
+        <a href="#contact" class="btn btn-outline">Start a Project →</a>
       </div>
     </div>
-    <div class="hero-scroll">
-      <span class="mono">Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-    <div class="hero-ticker">
-      <div class="ticker-track">
-        <span>Web Design</span><span class="dot">✦</span>
-        <span>UI/UX</span><span class="dot">✦</span>
-        <span>Brand Identity</span><span class="dot">✦</span>
-        <span>Motion Design</span><span class="dot">✦</span>
-        <span>E-Commerce</span><span class="dot">✦</span>
-        <span>Development</span><span class="dot">✦</span>
-        <span>Web Design</span><span class="dot">✦</span>
-        <span>UI/UX</span><span class="dot">✦</span>
-        <span>Brand Identity</span><span class="dot">✦</span>
-        <span>Motion Design</span><span class="dot">✦</span>
-        <span>E-Commerce</span><span class="dot">✦</span>
-        <span>Development</span><span class="dot">✦</span>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hch">
+          <div class="hcd"></div><div class="hcd"></div><div class="hcd"></div>
+          <div class="hcu"><span>whitewolflabs.in/apex-ventures</span></div>
+        </div>
+        <div class="hcb">
+          <div class="mi"><span>APEX VENTURES</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+            <div style="flex:1"><div class="ml" style="width:75%"></div><div class="ml" style="width:45%"></div></div>
+            <span class="mbadge">Live ↗</span>
+          </div>
+          <div class="mstats">
+            <div class="ms"><span class="ms-n">40%</span><span class="ms-l">Conv.</span></div>
+            <div class="ms"><span class="ms-n">2.1s</span><span class="ms-l">Load</span></div>
+            <div class="ms"><span class="ms-n">98</span><span class="ms-l">Perf</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats">
-    <div class="stats-grid">
-      <div class="stat reveal">
-        <span class="stat-num" data-target="48">0</span>
-        <span class="stat-label mono">Projects Delivered</span>
-      </div>
-      <div class="stat reveal">
-        <span class="stat-num" data-target="100">0</span><span class="stat-suffix">%</span>
-        <span class="stat-label mono">Client Satisfaction</span>
-      </div>
-      <div class="stat reveal">
-        <span class="stat-num" data-target="12">0</span>
-        <span class="stat-label mono">Industries Served</span>
-      </div>
-      <div class="stat reveal">
-        <span class="stat-num" data-target="6">0</span>
-        <span class="stat-label mono">Design Awards</span>
-      </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Web Design</span><span class="hi">✦</span><span>UI/UX</span><span class="hi">✦</span><span>Brand Identity</span><span class="hi">✦</span><span>E-Commerce</span><span class="hi">✦</span><span>Motion Design</span><span class="hi">✦</span><span>Development</span><span class="hi">✦</span><span>Web Design</span><span class="hi">✦</span><span>UI/UX</span><span class="hi">✦</span><span>Brand Identity</span><span class="hi">✦</span><span>E-Commerce</span><span class="hi">✦</span><span>Motion Design</span><span class="hi">✦</span><span>Development</span><span class="hi">✦</span>
     </div>
-  </section>
+  </div>
 
-  <!-- WORK -->
+  <div class="stats">
+    <div class="stat reveal"><span class="stat-n"><span class="counter" data-to="48">0</span></span><span class="stat-l">Projects Delivered</span></div>
+    <div class="stat reveal"><span class="stat-n"><span class="counter" data-to="100">0</span><span class="stat-suf">%</span></span><span class="stat-l">Client Satisfaction</span></div>
+    <div class="stat reveal"><span class="stat-n"><span class="counter" data-to="12">0</span></span><span class="stat-l">Industries Served</span></div>
+    <div class="stat reveal"><span class="stat-n"><span class="counter" data-to="6">0</span></span><span class="stat-l">Design Awards</span></div>
+  </div>
+
   <section class="work" id="work">
-    <div class="section-header reveal">
-      <span class="section-tag mono">Selected Work</span>
-      <h2 class="section-title">Projects that <em>move</em><br>the needle.</h2>
+    <div class="wh">
+      <div class="reveal"><span class="label">Selected Work</span><h2 class="section-title">Projects that <em>move</em><br>the needle.</h2></div>
+      <a href="#contact" class="btn btn-outline reveal">All Projects →</a>
     </div>
-    <div class="projects-grid">
-
-      <article class="project project--large reveal" data-index="01">
-        <div class="project-img" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);">
-          <div class="project-img-inner">
-            <div class="mock-ui">
-              <div class="mock-bar"></div>
-              <div class="mock-card"></div>
-              <div class="mock-card short"></div>
-            </div>
-          </div>
-          <div class="project-overlay">
-            <a href="#" class="project-link">View Case →</a>
-          </div>
-        </div>
-        <div class="project-info">
-          <span class="project-num mono">01</span>
-          <div>
-            <span class="project-tag mono">Branding + Web</span>
-            <h3 class="project-name">Apex Ventures</h3>
-            <p class="project-desc">Brand identity & investor portal for a Series-A VC firm.</p>
-          </div>
-        </div>
+    <div class="projects">
+      <article class="project reveal">
+        <div class="pt" style="background:linear-gradient(135deg,#1a2a3a,#2d4a6a)"><span class="pt-lbl">Apex</span></div>
+        <div class="pi"><div><span class="ptag">Branding + Web</span><h3 class="pname">Apex Ventures</h3><p class="pdesc">Brand identity & investor portal for a Series-A VC firm.</p></div><div class="parrow">→</div></div>
       </article>
-
-      <article class="project reveal" data-index="02">
-        <div class="project-img" style="background: linear-gradient(135deg, #1a0a0a 0%, #2e1a1a 100%);">
-          <div class="project-img-inner">
-            <div class="mock-ui">
-              <div class="mock-product"></div>
-              <div class="mock-bar short"></div>
-            </div>
-          </div>
-          <div class="project-overlay">
-            <a href="#" class="project-link">View Case →</a>
-          </div>
-        </div>
-        <div class="project-info">
-          <span class="project-num mono">02</span>
-          <div>
-            <span class="project-tag mono">E-Commerce</span>
-            <h3 class="project-name">Luna Store</h3>
-            <p class="project-desc">High-conversion Shopify build for a luxury cosmetics brand.</p>
-          </div>
-        </div>
+      <article class="project reveal">
+        <div class="pt" style="background:linear-gradient(135deg,#3a1a2a,#6a2a4a)"><span class="pt-lbl">Luna</span></div>
+        <div class="pi"><div><span class="ptag">E-Commerce</span><h3 class="pname">Luna Store</h3><p class="pdesc">High-conversion Shopify build for a luxury cosmetics brand.</p></div><div class="parrow">→</div></div>
       </article>
-
-      <article class="project reveal" data-index="03">
-        <div class="project-img" style="background: linear-gradient(135deg, #0a1a0a 0%, #0d2b0d 100%);">
-          <div class="project-img-inner">
-            <div class="mock-ui">
-              <div class="mock-chart"></div>
-              <div class="mock-bar short"></div>
-            </div>
-          </div>
-          <div class="project-overlay">
-            <a href="#" class="project-link">View Case →</a>
-          </div>
-        </div>
-        <div class="project-info">
-          <span class="project-num mono">03</span>
-          <div>
-            <span class="project-tag mono">Web App</span>
-            <h3 class="project-name">Greenline Dashboard</h3>
-            <p class="project-desc">Analytics platform for a sustainable logistics startup.</p>
-          </div>
-        </div>
+      <article class="project reveal">
+        <div class="pt" style="background:linear-gradient(135deg,#1a3a2a,#2a5a3a)"><span class="pt-lbl">Greenline</span></div>
+        <div class="pi"><div><span class="ptag">Web App</span><h3 class="pname">Greenline Dashboard</h3><p class="pdesc">Analytics platform for a sustainable logistics startup.</p></div><div class="parrow">→</div></div>
       </article>
-
-      <article class="project reveal" data-index="04">
-        <div class="project-img" style="background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);">
-          <div class="project-img-inner">
-            <div class="mock-ui">
-              <div class="mock-hero-block"></div>
-            </div>
-          </div>
-          <div class="project-overlay">
-            <a href="#" class="project-link">View Case →</a>
-          </div>
-        </div>
-        <div class="project-info">
-          <span class="project-num mono">04</span>
-          <div>
-            <span class="project-tag mono">Landing Page</span>
-            <h3 class="project-name">StellarX Launch</h3>
-            <p class="project-desc">High-impact product launch page with 40% conversion rate.</p>
-          </div>
-        </div>
+      <article class="project reveal">
+        <div class="pt" style="background:linear-gradient(135deg,#1a1a3a,#2a2a6a)"><span class="pt-lbl">StellarX</span></div>
+        <div class="pi"><div><span class="ptag">Landing Page</span><h3 class="pname">StellarX Launch</h3><p class="pdesc">High-impact product launch page. 40% conversion rate.</p></div><div class="parrow">→</div></div>
       </article>
-
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="services" id="services">
-    <div class="section-header reveal">
-      <span class="section-tag mono">What We Do</span>
-      <h2 class="section-title">Every pixel,<br><em>intentional.</em></h2>
-    </div>
-    <div class="services-list">
-      <div class="service reveal">
-        <span class="service-num mono">01</span>
-        <div class="service-body">
-          <h3 class="service-name">Web Design &<br>Development</h3>
-          <p class="service-desc">Pixel-perfect websites built for speed, accessibility, and conversion. From landing pages to complex web apps.</p>
-        </div>
-        <span class="service-arrow">→</span>
-      </div>
-      <div class="service reveal">
-        <span class="service-num mono">02</span>
-        <div class="service-body">
-          <h3 class="service-name">Brand Identity</h3>
-          <p class="service-desc">Logos, color systems, typography, and brand guidelines that make your brand unmistakable across every touchpoint.</p>
-        </div>
-        <span class="service-arrow">→</span>
-      </div>
-      <div class="service reveal">
-        <span class="service-num mono">03</span>
-        <div class="service-body">
-          <h3 class="service-name">UI/UX Design</h3>
-          <p class="service-desc">User research, wireframes, and high-fidelity prototypes. Interfaces people love to use, not just look at.</p>
-        </div>
-        <span class="service-arrow">→</span>
-      </div>
-      <div class="service reveal">
-        <span class="service-num mono">04</span>
-        <div class="service-body">
-          <h3 class="service-name">E-Commerce</h3>
-          <p class="service-desc">Shopify and custom storefronts engineered to sell. Product pages, checkout flows, and retention strategies.</p>
-        </div>
-        <span class="service-arrow">→</span>
-      </div>
-      <div class="service reveal">
-        <span class="service-num mono">05</span>
-        <div class="service-body">
-          <h3 class="service-name">Motion &<br>Interaction</h3>
-          <p class="service-desc">Animations, micro-interactions, and scroll effects that breathe life into your digital presence.</p>
-        </div>
-        <span class="service-arrow">→</span>
-      </div>
+    <span class="label reveal">What We Do</span>
+    <h2 class="section-title reveal">Every pixel,<br><em>intentional.</em></h2>
+    <div class="sg">
+      <div class="sc reveal"><div class="sc-num">01</div><div class="sc-icon">ߌ</div><h3 class="sc-name">Web Design & Development</h3><p class="sc-desc">Pixel-perfect websites built for speed, accessibility, and conversion. From landing pages to complex web apps.</p></div>
+      <div class="sc reveal"><div class="sc-num">02</div><div class="sc-icon">ߎ</div><h3 class="sc-name">Brand Identity</h3><p class="sc-desc">Logos, color systems, typography, and brand guidelines that make your brand unmistakable at every touchpoint.</p></div>
+      <div class="sc reveal"><div class="sc-num">03</div><div class="sc-icon">✏️</div><h3 class="sc-name">UI/UX Design</h3><p class="sc-desc">User research, wireframes, and high-fidelity prototypes. Interfaces people love to use, not just look at.</p></div>
+      <div class="sc reveal"><div class="sc-num">04</div><div class="sc-icon">ߛ</div><h3 class="sc-name">E-Commerce</h3><p class="sc-desc">Shopify and custom storefronts engineered to sell. Product pages, checkout flows, and retention strategies.</p></div>
+      <div class="sc reveal"><div class="sc-num">05</div><div class="sc-icon">✨</div><h3 class="sc-name">Motion & Interaction</h3><p class="sc-desc">Animations and micro-interactions that breathe life into your digital presence.</p></div>
+      <div class="sc reveal"><div class="sc-num">06</div><div class="sc-icon">ߓ</div><h3 class="sc-name">Ongoing Support</h3><p class="sc-desc">Post-launch support, analytics, and iterative optimisation to keep your site growing.</p></div>
     </div>
   </section>
 
-  <!-- PROCESS MARQUEE -->
-  <div class="process-band">
-    <div class="process-track">
-      <span class="mono">Discover</span><span class="sep">—</span>
-      <span class="mono">Design</span><span class="sep">—</span>
-      <span class="mono">Build</span><span class="sep">—</span>
-      <span class="mono">Deliver</span><span class="sep">—</span>
-      <span class="mono">Grow</span><span class="sep">—</span>
-      <span class="mono">Discover</span><span class="sep">—</span>
-      <span class="mono">Design</span><span class="sep">—</span>
-      <span class="mono">Build</span><span class="sep">—</span>
-      <span class="mono">Deliver</span><span class="sep">—</span>
-      <span class="mono">Grow</span><span class="sep">—</span>
+  <section class="process">
+    <div class="proc-in"><span class="label reveal" style="justify-content:center">Our Process</span><h2 class="section-title reveal">How we build <em>legends.</em></h2></div>
+    <div class="proc-steps">
+      <div class="step reveal"><div class="step-c">01</div><h3 class="step-name">Discover</h3><p class="step-desc">Deep dive into your goals, audience, and competitors. Strategy first, always.</p></div>
+      <div class="step reveal"><div class="step-c">02</div><h3 class="step-name">Design</h3><p class="step-desc">Wireframes, mood boards, and high-fidelity mockups. You approve every pixel.</p></div>
+      <div class="step reveal"><div class="step-c">03</div><h3 class="step-name">Build</h3><p class="step-desc">Clean code, fast load times, mobile-first. Launched and battle-tested.</p></div>
+      <div class="step reveal"><div class="step-c">04</div><h3 class="step-name">Grow</h3><p class="step-desc">Post-launch support, analytics, and ongoing optimisation to maximise results.</p></div>
     </div>
-  </div>
+  </section>
 
-  <!-- ABOUT -->
   <section class="about" id="about">
-    <div class="about-grid">
-      <div class="about-left reveal">
-        <span class="section-tag mono">About</span>
-        <h2 class="section-title">Websites that<br><em>wolves</em> would<br>be proud of.</h2>
-        <a href="#contact" class="btn-primary">Work With Us</a>
+    <div class="av reveal">
+      <div class="aimg"><div class="aimg-text">Bold by design.<br>Driven by results.</div></div>
+      <div class="abadge"><div class="abadge-n">48+</div><div class="abadge-l">Happy Clients</div></div>
+    </div>
+    <div class="reveal">
+      <span class="label">About</span>
+      <h2 class="section-title">Websites that<br><em>wolves</em> would<br>be proud of.</h2>
+      <p class="about-body" style="margin-top:1.5rem">White Wolf Labs is a boutique web design studio working with ambitious founders, startups, and brands worldwide who refuse to settle for average.</p>
+      <p class="about-body">We blend sharp strategy with bold design to create digital experiences that are not just beautiful — they convert, retain, and grow.</p>
+      <div class="pillars">
+        <span class="pillar">Bold by default</span>
+        <span class="pillar">Performance obsessed</span>
+        <span class="pillar">Human-centred</span>
+        <span class="pillar">Relentlessly iterative</span>
       </div>
-      <div class="about-right reveal">
-        <p class="about-body">White Wolf Labs is a boutique web design studio working with ambitious founders, startups, and brands worldwide who refuse to settle for average.</p>
-        <p class="about-body">We blend sharp strategy with bold design to create digital experiences that are not just beautiful — they convert, retain, and grow.</p>
-        <div class="about-tags">
-          <span class="tag mono">Bold by default</span>
-          <span class="tag mono">Performance obsessed</span>
-          <span class="tag mono">Human-centred</span>
-          <span class="tag mono">Relentlessly iterative</span>
-        </div>
-      </div>
+      <a href="#contact" class="btn btn-terra">Work With Us →</a>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
   <section class="testimonials">
-    <div class="section-header reveal">
-      <span class="section-tag mono">Kind Words</span>
-      <h2 class="section-title">Clients who<br><em>trust</em> the wolf.</h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"White Wolf Labs completely transformed our online presence. The attention to detail is insane — every scroll, every hover felt intentional."</p>
-        <div class="testimonial-author">
-          <div class="avatar">AS</div>
-          <div>
-            <strong>Aryan Shah</strong>
-            <span class="mono">Founder, Apex Ventures</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Our conversion rate went up 40% after the redesign. They understand how design and business goals intersect better than any agency I've worked with."</p>
-        <div class="testimonial-author">
-          <div class="avatar">MK</div>
-          <div>
-            <strong>Meera Kapoor</strong>
-            <span class="mono">CEO, Luna Cosmetics</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Fast, communicative, and deliver what they promise. The dashboard they built handles 10K+ daily users without a hiccup."</p>
-        <div class="testimonial-author">
-          <div class="avatar">RP</div>
-          <div>
-            <strong>Rohan Patel</strong>
-            <span class="mono">CTO, Greenline</span>
-          </div>
-        </div>
-      </div>
+    <div class="t-in"><span class="label reveal" style="justify-content:center">Kind Words</span><h2 class="section-title reveal">Clients who <em>trust</em> the wolf.</h2></div>
+    <div class="tgrid">
+      <div class="tcard reveal"><div class="tc-stars">★★★★★</div><p class="tc-text">"White Wolf Labs completely transformed our online presence. The attention to detail is insane — every scroll, every hover felt intentional."</p><div class="tc-auth"><div class="tc-av">AS</div><div><div class="tc-name">Aryan Shah</div><div class="tc-role">Founder, Apex Ventures</div></div></div></div>
+      <div class="tcard reveal"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our conversion rate went up 40% after the redesign. They understand how design and business goals intersect better than any agency I've worked with."</p><div class="tc-auth"><div class="tc-av">MK</div><div><div class="tc-name">Meera Kapoor</div><div class="tc-role">CEO, Luna Cosmetics</div></div></div></div>
+      <div class="tcard reveal"><div class="tc-stars">★★★★★</div><p class="tc-text">"Fast, communicative, and deliver what they promise. The dashboard they built handles 10K+ daily users without a hiccup."</p><div class="tc-auth"><div class="tc-av">RP</div><div><div class="tc-name">Rohan Patel</div><div class="tc-role">CTO, Greenline</div></div></div></div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="contact" id="contact">
-    <div class="contact-inner">
-      <div class="contact-left reveal">
-        <span class="section-tag mono">Get In Touch</span>
-        <h2 class="contact-title">Ready to build<br>something<br><em>legendary?</em></h2>
-        <a href="mailto:hello@whitewolflabs.in" class="contact-email mono">hello@whitewolflabs.in</a>
-        <p class="contact-note mono">We respond within 24 hours.</p>
-      </div>
-      <form class="contact-form reveal" id="contactForm">
-        <div class="form-group">
-          <label class="form-label mono" for="name">Name</label>
-          <input class="form-input" type="text" id="name" name="name" placeholder="Your full name" required />
+    <div class="reveal">
+      <span class="label">Get In Touch</span>
+      <h2 class="section-title">Ready to build<br>something<br><em>legendary?</em></h2>
+      <p class="c-tag">Tell us about your project. We respond within 24 hours and are happy to jump on a call.</p>
+      <div class="cd"><div class="cd-icon">✉️</div><div><strong>Email</strong> — <a href="mailto:hello@whitewolflabs.in">hello@whitewolflabs.in</a></div></div>
+      <div class="cd"><div class="cd-icon">⏱</div><div><strong>Response time</strong> — Within 24 hours</div></div>
+      <div class="cd"><div class="cd-icon">ߌ</div><div><strong>Clients</strong> — International, worldwide</div></div>
+    </div>
+    <div class="cf reveal">
+      <div class="cf-title">Send us a message</div>
+      <form id="contactForm" novalidate>
+        <div class="fr">
+          <div class="fg"><label for="fn">First Name</label><input type="text" id="fn" placeholder="Jane" required /></div>
+          <div class="fg"><label for="ln">Last Name</label><input type="text" id="ln" placeholder="Smith" /></div>
         </div>
-        <div class="form-group">
-          <label class="form-label mono" for="email">Email</label>
-          <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
-        </div>
-        <div class="form-group">
-          <label class="form-label mono" for="service">Project Type</label>
-          <select class="form-input form-select" id="service" name="service">
-            <option value="">Select a service...</option>
-            <option>Web Design & Development</option>
-            <option>Brand Identity</option>
-            <option>UI/UX Design</option>
-            <option>E-Commerce</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label mono" for="message">Message</label>
-          <textarea class="form-input" id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
-        </div>
-        <button type="submit" class="btn-primary form-submit">Send Message ✦</button>
-        <p class="form-success" id="formSuccess">✓ Message sent! We'll be in touch within 24 hours.</p>
+        <div class="fg"><label for="em">Email</label><input type="email" id="em" placeholder="jane@company.com" required /></div>
+        <div class="fg"><label for="svc">Service Needed</label><select id="svc"><option value="">Select a service...</option><option>Web Design & Development</option><option>Brand Identity</option><option>UI/UX Design</option><option>E-Commerce</option><option>Other</option></select></div>
+        <div class="fg"><label for="bgt">Budget Range</label><select id="bgt"><option value="">Select a range...</option><option>Under $1,000</option><option>$1,000 – $5,000</option><option>$5,000 – $15,000</option><option>$15,000+</option></select></div>
+        <div class="fg"><label for="msg">Project Details</label><textarea id="msg" placeholder="Tell us about your project, timeline, and goals..."></textarea></div>
+        <button type="submit" class="btn btn-dark fbtn">Send Message →</button>
+        <div class="fsuc" id="fsuc">✓ &nbsp;Message sent! We'll be in touch within 24 hours.</div>
       </form>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <span class="footer-logo">WHITE WOLF LABS</span>
-        <nav class="footer-nav">
-          <a href="#work">Work</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-      <div class="footer-bottom">
-        <span class="mono">© 2024 White Wolf Labs. All rights reserved.</span>
-        <a href="https://github.com/prabhjyot-ucl/whitewolflabs.in" class="mono footer-gh" target="_blank" rel="noopener">GitHub ↗</a>
-      </div>
+  <footer>
+    <div class="ft">
+      <div><div class="flogo">White Wolf<span>.</span></div><p class="ftag">A boutique web design studio crafting bold digital experiences for international clients. Est. 2024.</p></div>
+      <div><div class="fct">Navigate</div><div class="fl"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div></div>
+      <div><div class="fct">Connect</div><div class="fl"><a href="mailto:hello@whitewolflabs.in">hello@whitewolflabs.in</a><a href="https://github.com/prabhjyot-ucl/whitewolflabs.in" target="_blank" rel="noopener">GitHub ↗</a></div></div>
     </div>
+    <div class="fb"><span>© 2024 White Wolf Labs. All rights reserved.</span><a href="#">Back to top ↑</a></div>
   </footer>
 
-  <script src="main.js"></script>
+  <script>
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('solid',window.scrollY>40),{passive:true});
+    const burger=document.getElementById('burger'),mn=document.getElementById('mobileNav');
+    burger.addEventListener('click',()=>{burger.classList.toggle('open');mn.classList.toggle('open');document.body.style.overflow=mn.classList.contains('open')?'hidden':'';});
+    mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');mn.classList.remove('open');document.body.style.overflow='';}));
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-72,behavior:'smooth'});}}));
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    setTimeout(()=>document.querySelectorAll('.hero .reveal,.hero-left>*').forEach(el=>el.classList.add('in')),80);
+    const easeOut=t=>1-Math.pow(1-t,3);
+    document.querySelectorAll('.counter').forEach(el=>{
+      const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const to=+e.target.dataset.to,dur=1500,s=performance.now();const tick=n=>{e.target.textContent=Math.round(easeOut(Math.min((n-s)/dur,1))*to);if((n-s)<dur)requestAnimationFrame(tick);};requestAnimationFrame(tick);cio.unobserve(e.target);}),{threshold:0.5});cio.observe(el);
+    });
+    document.getElementById('contactForm').addEventListener('submit',e=>{
+      e.preventDefault();const btn=e.target.querySelector('.fbtn');btn.textContent='Sending…';btn.disabled=true;
+      setTimeout(()=>{e.target.reset();btn.textContent='Send Message →';btn.disabled=false;const s=document.getElementById('fsuc');s.classList.add('show');setTimeout(()=>s.classList.remove('show'),5000);},1000);
+    });
+  </script>
 </body>
 </html>
 
