@@ -749,3 +749,4 @@ option { background: var(--surface2); }
   .nav { padding: 1rem; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 }
+
